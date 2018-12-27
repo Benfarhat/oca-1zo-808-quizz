@@ -286,7 +286,7 @@
                                 var input = '<input id="' + optionId + '" name="' + inputName +
                                             '" type="' + inputType + '" /> ';
 
-                                var optionLabel = '<label for="' + optionId + '">' + answer.option + '</label>';
+                                var optionLabel = '<label for="' + optionId + '"><div>' + answer.option + '</div></label>';
 
                                 var answerContent = $('<li></li>')
                                     .append(input)

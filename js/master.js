@@ -7,6 +7,7 @@ $(function () {
         wrapOfQuestion: null,
         randomSortQuestions: false,
         randomSortAnswers: true,
-        scoreAsPercentage: true
+        scoreAsPercentage: true,
+        perQuestionResponseAnswers: true
     });
 });

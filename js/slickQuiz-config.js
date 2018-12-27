@@ -2,6 +2,45 @@
 
 // NOTE: pay attention to commas, IE struggles with those bad boys
 
+/*
+var questions = [
+    [
+        'q' => `    class X
+        public void printFileContent() {
+          /* code goes here * /
+          throw new IOException();
+        }
+      }
+      public class Test {
+        public static void main(String[] args) {
+          X xobj = new X();
+          xobj.printFileContent();
+        }
+      }`,
+      "a" => [
+        [
+          "option" => "Bacon and eggs",
+          "correct" => false
+        ],
+        [
+          "option" => "Bacon and eggs",
+          "correct" => false
+        ],
+        [
+          "option" => "Bacon and eggs",
+          "correct" => false
+        ],
+        [
+          "option" => "Bacon and eggs",
+          "correct" => false
+        ],
+        "select_any" => true,
+        "correct" => "<p><span>Nice!</span> Your cholestoral level is probably doing alright.</p>",
+        "incorrect" => "<p><span>Hmmm.</span> You might want to reconsider your options.</p>"
+
+    ]
+];
+*/
 var quizJSON = {
     "info": {
         "name":    "Exam 808 - Java SE 8 Programmer I",
@@ -15,29 +54,58 @@ var quizJSON = {
     },
     "questions": [
         { // Question 1 - Multiple Choice, Single True Answer
-            "q": "Given the code fragment:<br>" + "\n" +
-            '<pre class="prettyprint linenums">' + "\n" +
-            "class X {" + "\n" +
-            "  public void printFileContent() {" + "\n" +
-            "    /* code goes here */" + "\n" +
-            "    throw new IOException();" + "\n" +
-            "  }" + "\n" +
-            "}" + "\n" +
-            "public class Test {" + "\n" +
-            "  public static void main(String[] args) {" + "\n" +
-            "    X xobj = new X();" + "\n" +
-            "    xobj.printFileContent();" + "\n" +
-            "  }" + "\n" +
-            "}" + "\n" +
-            "</pre>",
+            "q": `Given the code fragment:<br><pre class="prettyprint linenums">            class X {
+                public void printFileContent() {
+                    /* code goes here */
+                    throw new IOException();
+                }
+            }
+            public class Test {
+                public static void main(String[] args) {
+                    X xobj = new X();
+                    xobj.printFileContent();
+                }
+            }</pre>
+            <p>Which two modifications should you make so that the code compiles successfully? (Choose two).</p>`,
             "a": [
-                {"option": "null",      "correct": false},
-                {"option": "10",     "correct": false},
-                {"option": "0",      "correct": true},
-                {"option": "23",     "correct": false} // no comma here
+                {
+                    "option": `Replace line 8 with:<pre class="prettyprint">public static void main(String[] args) throws Exception {</pre>`,      
+                    "correct": true
+                },
+                {
+                    "option": `Replace line 10 with:<pre class="prettyprint">try {
+  xobj.printFileContent();
+}
+catch(Exception e) { }
+catch(IOException e) { }</pre>`,      
+                    "correct": false
+                },
+                {
+                    "option": `Replace line 2 with:<pre class="prettyprint">public void printFileContent() throws IOException {</pre>`,      
+                    "correct": true
+                },
+                {
+                    "option": `At line 11 insert:<pre class="prettyprint">throws new IOEception();</pre>`,      
+                    "correct": false
+                }
             ],
-            "correct": "<p><span>That's right!</span> The letter A is the first letter in the alphabet!</p>",
-            "incorrect": "<p><span>Uhh no.</span> It's the first letter of the alphabet. Did you actually <em>go</em> to kindergarden?</p>" // no comma here
+            "correct": "<p><span>Good answer!</span></p>",
+            "incorrect": `<p><span>Wrong answer!</span>
+<pre class="prettyprint linenums">import java.io.*;
+
+class X {
+  public void printFileContent() throws IOException{
+    /* code goes here */
+    throw new IOException();
+  }
+}
+public class Test {
+  public static void main(String[] args) throws Exception{
+    X xobj = new X();
+    xobj.printFileContent();
+  }
+}
+</pre></p>`
         },
         { // Question 2 - Multiple Choice, Multiple True Answers, Select Any
             "q": "Which of the following best represents your preferred breakfast?",

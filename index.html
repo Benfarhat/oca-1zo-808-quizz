@@ -15,13 +15,18 @@
                 margin-top:8px;
                 margin-bottom:8px;
                 font-family: 'Courier New', Courier, monospace;
+                padding:0;
             }
             pre.prettyprint ol.linenums li{
-                list-style-type: decimal !important;
-                margin-left:24px !important
+                list-style-type: decimal-leading-zero !important;
+                margin-left:36px !important;
             }
             ul.answers{
                 margin-top:16px;
+            }
+            ul.responses li pre.prettyprint ol.linenums li, /* In case of CSS refactoring */
+            ul.responses li{
+                margin: 0;
             }
         </style>
     </head>
