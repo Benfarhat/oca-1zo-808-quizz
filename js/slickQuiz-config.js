@@ -43,7 +43,7 @@ var questions = [
 */
 var quizJSON = {
     "info": {
-        "name":    "Exam 808 - Java SE 8 Programmer I",
+        "name":    "Exam 808 - Java SE 8 Programmer I <br>WORK IN PROGRESS!!!",
         "main":    "<p>Knowledge is of no value unless you put it into practise. <small>Anton Tchekhov</small></p>",
         "results": "<p>You results</p>",
         "level1":  "Java Ninja",
